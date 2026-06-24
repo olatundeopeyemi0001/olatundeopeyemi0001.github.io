@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olatunde Opeyemi Ayoola - GIS Analyst & Geospatial Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #faf9f6;
+            --card-bg: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a5a;
+            --accent: #2a6f6f;
+            --accent-light: #e8f4f4;
+            --border: #e0e0e8;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        /* Hero */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-color) 100%);
+        }
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        .hero-profile {
+            flex: 0 0 300px;
+        }
+        .hero-profile img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            aspect-ratio: 1;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn:hover { background: #225a5a; transform: translateY(-2px); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            margin-left: 12px;
+        }
+        .btn-outline:hover { background: var(--accent); color: #fff; }
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-4px); }
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-body h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .card-body p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        .card-link {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        /* Horizontal Gallery */
+        .gallery-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 4px;
+            scrollbar-width: thin;
+        }
+        .gallery-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        .gallery-item {
+            min-width: 280px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .gallery-item .caption {
+            padding: 12px 16px;
+        }
+        .gallery-item .caption h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        /* Data List */
+        .data-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .data-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .data-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        .data-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .data-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .skill-tag {
+            background: var(--card-bg);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+        }
+        /* Experience */
+        .exp-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+        }
+        .exp-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .exp-item .role {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .exp-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer h4 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            color: var(--accent-light);
+        }
+        .footer a {
+            display: block;
+            color: #aaa;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        .footer a:hover { color: #fff; }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-inner { flex-direction: column; text-align: center; }
+            .hero-profile { order: -1; }
+            .nav-links { display: none; }
+            .section-header h2 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">Opeyemi Ayoola</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">GIS Projects</a></li>
+                <li><a href="#detroit">Detroit UHI</a></li>
+                <li><a href="#data">Data Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <span class="hero-badge">GIS Analyst & Geospatial Professional</span>
+                    <h1>Olatunde Opeyemi <span>Ayoola</span></h1>
+                    <p class="hero-subtitle">Specializing in spatial data analysis, urban heat mapping, remote sensing, and geospatial technologies. Transforming complex geographic data into actionable insights.</p>
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+                <div class="hero-profile">
+                    <img src="assets/profile.jpg" alt="Opeyemi Olatunde Ayoola">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIS Projects -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>GIS Projects</h2>
+                <div class="divider"></div>
+                <p>Selected geospatial analysis and mapping projects</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="assets/detroit-heat.jpg" class="card-img" alt="Detroit Heat Vulnerability">
+                    <div class="card-body">
+                        <h3>Detroit Urban Heat Vulnerability</h3>
+                        <p>Analysis of urban heat island effects and social vulnerability across Detroit neighborhoods using Landsat imagery and census data.</p>
+                        <span class="tag">ArcGIS Pro</span>
+                        <span class="tag">Remote Sensing</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="assets/flood-risk.jpg" class="card-img" alt="Flood Risk Mapping">
+                    <div class="card-body">
+                        <h3>Flood Risk Mapping</h3>
+                        <p>Developed flood risk assessment models using DEM analysis and hydrological modeling techniques.</p>
+                        <span class="tag">ArcGIS</span>
+                        <span class="tag">Hydrology</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="assets/landuse.jpg" class="card-img" alt="Land Use Classification">
+                    <div class="card-body">
+                        <h3>Land Use / Land Cover Classification</h3>
+                        <p>Supervised classification of satellite imagery for urban growth monitoring and change detection analysis.</p>
+                        <span class="tag">LULC</span>
+                        <span class="tag">QGIS</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="assets/gis-health.jpg" class="card-img" alt="GIS Health Analysis">
+                    <div class="card-body">
+                        <h3>GIS Analysis for Health</h3>
+                        <p>Spatial analysis of health data patterns and healthcare accessibility mapping using network analysis.</p>
+                        <span class="tag">Health GIS</span>
+                        <span class="tag">Network Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detroit Urban Heat Vulnerability Gallery -->
+    <section class="section" id="detroit" style="background: var(--accent-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Detroit Urban Heat Vulnerability Analysis</h2>
+                <div class="divider"></div>
+                <p>A comprehensive analysis of urban heat island effects across Detroit neighborhoods</p>
+            </div>
+            <div class="gallery-scroll">
+                <div class="gallery-item">
+                    <img src="assets/detroit-1.jpg" alt="Detroit UHI - Map 1">
+                    <div class="caption"><h4>Land Surface Temperature Map</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/detroit-2.jpg" alt="Detroit UHI - Map 2">
+                    <div class="caption"><h4>Heat Vulnerability Index</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/detroit-3.jpg" alt="Detroit UHI - Map 3">
+                    <div class="caption"><h4>NDVI Analysis</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/detroit-4.jpg" alt="Detroit UHI - Map 4">
+                    <div class="caption"><h4>Impervious Surface Analysis</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/detroit-5.jpg" alt="Detroit UHI - Map 5">
+                    <div class="caption"><h4>Population Density Overlay</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/detroit-6.jpg" alt="Detroit UHI - Map 6">
+                    <div class="caption"><h4>Social Vulnerability Index</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/detroit-7.jpg" alt="Detroit UHI - Map 7">
+                    <div class="caption"><h4>Hotspot Analysis</h4></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/detroit-8.jpg" alt="Detroit UHI - Map 8">
+                    <div class="caption"><h4>Final Heat Risk Map</h4></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Projects -->
+    <section class="section" id="data">
+        <div class="container">
+            <div class="section-header">
+                <h2>Data Projects</h2>
+                <div class="divider"></div>
+                <p>Data analysis, visualization, and interactive StoryMaps</p>
+            </div>
+            <div class="data-list">
+                <a href="https://storymaps.arcgis.com/stories/" target="_blank" class="data-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <div>
+                        <h3>ArcGIS StoryMaps</h3>
+                        <p>Interactive geospatial storytelling and web maps</p>
+                    </div>
+                </a>
+                <a href="https://github.com/olatundeopeyemi0001/Corona-virus-Project-analysis" target="_blank" class="data-item">
+                    <i class="fab fa-github"></i>
+                    <div>
+                        <h3>Coronavirus Project Analysis</h3>
+                        <p>Jupyter Notebook - Spatial analysis of COVID-19 data</p>
+                    </div>
+                </a>
+                <a href="https://github.com/olatundeopeyemi0001/GIS_Analysis_Health" target="_blank" class="data-item">
+                    <i class="fab fa-github"></i>
+                    <div>
+                        <h3>GIS Analysis for Health</h3>
+                        <p>Healthcare accessibility and spatial epidemiology</p>
+                    </div>
+                </a>
+                <a href="https://github.com/olatundeopeyemi0001/BikeShareData" target="_blank" class="data-item">
+                    <i class="fab fa-github"></i>
+                    <div>
+                        <h3>Bike Share Data Analysis</h3>
+                        <p>Python-based analysis of bikeshare usage patterns</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience" style="background: var(--accent-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="exp-item">
+                <h3>GIS Graduate Student</h3>
+                <div class="role">Eastern Michigan University | 2022 - Present</div>
+                <p>Advanced coursework in spatial analysis, remote sensing, and GIS programming. Research focus on urban heat island analysis and environmental justice mapping.</p>
+            </div>
+            <div class="exp-item">
+                <h3>GIS Data Analyst</h3>
+                <div class="role">Previous Experience</div>
+                <p>Conducted building footprint creation, flood mapping analysis, and land use classification using ArcGIS Pro and QGIS. Developed automated workflows using Python scripting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Skills & Technologies</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-tag">ArcGIS Pro</span>
+                <span class="skill-tag">ArcGIS Online</span>
+                <span class="skill-tag">QGIS</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">ArcPy</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Google Colab</span>
+                <span class="skill-tag">Jupyter Notebooks</span>
+                <span class="skill-tag">Remote Sensing</span>
+                <span class="skill-tag">Landsat/Sentinel</span>
+                <span class="skill-tag">UHI Analysis</span>
+                <span class="skill-tag">LULC Classification</span>
+                <span class="skill-tag">Flood Mapping</span>
+                <span class="skill-tag">Network Analysis</span>
+                <span class="skill-tag">Drone Mapping</span>
+                <span class="skill-tag">DJI Phantom 4 Pro</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>About</h4>
+                    <p style="color: #aaa; font-size: 0.9rem; line-height: 1.7;">GIS Analyst and Geospatial Professional specializing in urban heat analysis, remote sensing, and spatial data science. Passionate about using geospatial technologies to solve real-world problems.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="#about">About</a>
+                    <a href="#projects">GIS Projects</a>
+                    <a href="#detroit">Detroit UHI</a>
+                    <a href="#data">Data Projects</a>
+                    <a href="#experience">Experience</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="https://github.com/olatundeopeyemi0001" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter/X</a>
+                    <a href="mailto:olatundeopeyemi0001@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Olatunde Opeyemi Ayoola. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
